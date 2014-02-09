@@ -1,5 +1,6 @@
 package com.example.comprev;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -42,20 +43,40 @@ public class ItemDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
+
             mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
+        View rootView2 = inflater.inflate(R.layout.activity_map, container, false);
+        View rootView3 = inflater.inflate(R.layout.activity_main, container, false);
+        if (mItem.id == "1") {
 
-        // Show the dummy content as text in a TextView.
-        if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.content);
-        }
+            //  Intent myIntent = new Intent(getActivity(), MapActivity.class);
+            //  getActivity().startActivity(myIntent);
+            rootView2.findViewById(R.id.map);
+            return rootView2;
+            //setContentView(layoutResID);
+        } else if (mItem.id == "2") {
+            //  return rootView3;
+            Intent myIntent = new Intent(getActivity(), MyLocationActivity.class);
+            getActivity().startActivity(myIntent);
+            //setContentView(layoutResID);
+
+
+        } else
+            // Show the dummy content as text in a TextView.
+            if (mItem != null) {
+                ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.content);
+            }
 
         return rootView;
     }
+
+
 }

@@ -12,11 +12,11 @@ import android.support.v4.app.FragmentActivity;
  * lead to a {@link ItemDetailActivity} representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
- * <p>
+ * <p/>
  * The activity makes heavy use of fragments. The list of items is a
  * {@link ItemListFragment} and the item details
  * (if present) is a {@link ItemDetailFragment}.
- * <p>
+ * <p/>
  * This activity also implements the required
  * {@link ItemListFragment.Callbacks} interface
  * to listen for item selections.
@@ -51,6 +51,10 @@ public class ItemListActivity extends FragmentActivity
 
         // TODO: If exposing deep links into your app, handle intents here.
     }
+
+
+    //yogi add if google play services are available
+
 
     /**
      * Callback method from {@link ItemListFragment.Callbacks}
